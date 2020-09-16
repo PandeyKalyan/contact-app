@@ -39,7 +39,6 @@
 
 <script>
     import gql from "graphql-tag";
-    import { InMemoryCache } from "apollo-cache-inmemory";
 
     const ADD_CONTACT = gql`
         mutation addContact(
