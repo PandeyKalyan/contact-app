@@ -10,7 +10,7 @@ import { Input, Field, Button, Icon } from 'buefy'
 import 'buefy/dist/buefy.css'
 
 const httpLink = new HttpLink({
-  uri: 'https://striking-quagga-44.hasura.app/v1/graphql'
+  uri: process.env.VUE_APP_DB_URL
 });
 
 const apolloClient = new ApolloClient({

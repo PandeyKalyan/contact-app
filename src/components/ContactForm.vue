@@ -24,7 +24,7 @@
                 <b-input placeholder="Message" maxlength="200" type="textarea"></b-input>
             </b-field>
             <b-field>
-                <b-button native-type="submit" class="is-fullwidth" size="is-medium" type="is-primary" :disabled="!disabled">
+                <b-button native-type="submit" class="is-fullwidth" size="is-medium" type="is-primary" :disabled="!disabled" v-on:click="submit">
                     <b-icon icon="send"></b-icon>
                 </b-button>
             </b-field>
