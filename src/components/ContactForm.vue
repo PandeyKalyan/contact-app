@@ -21,7 +21,7 @@
                 <b-input placeholder="Subject" v-model="subject" required></b-input>
             </b-field>
             <b-field>
-                <b-input placeholder="Message" maxlength="200" type="textarea"></b-input>
+                <b-input placeholder="Message" maxlength="200" type="textarea" v-model="message"></b-input>
             </b-field>
             <b-field>
                 <b-button native-type="submit" class="is-fullwidth" size="is-medium" type="is-primary" :disabled="!disabled" v-on:click="submit">
@@ -87,10 +87,13 @@
                 message: ''
             }
         },
-        appolo: {},
+        appolo: {
+            error({ graphqlError }) {
+                console.log('errors', graphqlError)
+            }
+        },
         methods: {
             submit() {
-                console.log("clicked")
                  const { email, first_name, last_name, linkedin, twitter, subject, message } = this.$data;
                  this.$apollo.mutate({
                     mutation: ADD_CONTACT,
@@ -103,7 +106,21 @@
                         subject,
                         message
                     }
+                }).then(data => {
+                    this.$buefy.snackbar.open(`Your contact record was added successfully`)
+                    this.resetForm()
+                }).catch(err => {
+                    this.$buefy.snackbar.open(`Sorry an error occured while processing the request`)
                 });
+            },
+            resetForm() {
+                this.email = '',
+                this.first_name = '',
+                this.last_name = '',
+                this.linkedin = '',
+                this.twitter = '',
+                this.subject = '',
+                this.message = ''
             }
         }
     }
