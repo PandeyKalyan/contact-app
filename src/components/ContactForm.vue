@@ -107,10 +107,16 @@
                         message
                     }
                 }).then(data => {
-                    this.$buefy.snackbar.open(`Your contact record was added successfully`)
+                    this.$buefy.snackbar.open({
+                        message: 'Your contact record was added successfully',
+                        position: 'is-top'
+                    })
                     this.resetForm()
                 }).catch(err => {
-                    this.$buefy.snackbar.open(`Sorry an error occured while processing the request`)
+                    this.$buefy.snackbar.open({
+                        message: `Sorry an error occured while processing the request`,
+                        position: 'is-top'
+                    })
                 });
             },
             resetForm() {
