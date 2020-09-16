@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <section id="app" class="section">
+          <div class="section has-text-centered">
+            <h1 class="title">Contact Form </h1>
+          </div>
+          <ContactForm>
+          </ContactForm>
+    
+  </section>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ContactForm from './components/ContactForm.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ContactForm
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  /* background-image: url('~@/assets/contact-form-background.jpg'); */
 }
 </style>
